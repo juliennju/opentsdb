@@ -801,7 +801,7 @@ final class CompactionQueue extends ConcurrentSkipListMap<byte[], Boolean> {
 
     @Override
     public int compare(final byte[] a, final byte[] b) {
-      final int c = Bytes.memcmp(a, b, metric_width, Const.TIMESTAMP_BYTES);
+      final int c = Bytes.memcmp(a, b, Const.SALT_WIDTH() + metric_width, Const.TIMESTAMP_BYTES);
       // If the timestamps are equal, sort according to the entire row key.
       return c != 0 ? c : Bytes.memcmp(a, b);
     }
