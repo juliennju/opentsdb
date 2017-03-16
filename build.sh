@@ -7,3 +7,6 @@ test -f Makefile || ../configure "$@"
 MAKE=make
 [ `uname -s` = "FreeBSD" ] && MAKE=gmake
 exec ${MAKE} "$@"
+
+
+
